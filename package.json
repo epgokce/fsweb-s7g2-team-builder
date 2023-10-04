@@ -1,0 +1,14 @@
+{
+  "name": "fsweb-s7g2-team-builder",
+  "version": "1.0.0",
+  "description": "Bu proje, sprint 7 gün 2'de öğrenilen kavram ve teknikleri uygulamanıza ve bunları somut bir projede uygulamanıza olanak tanır. Bugün, React'te Form yönetimini keşfettin. Input kontrolleri, semantik HTML, yayılma operatörü ve işlenmiş özellikler gibi bazı ES6 araçları ve sentetik eventler hakkında bilgi edindin. Projende bu konu ve ilkelerdeki yeterliliğini, her birini kullanarak bir uygulama oluşturarak göstereceksin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^5.0.1"
+  }
+}
