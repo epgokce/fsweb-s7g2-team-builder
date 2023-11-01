@@ -6,8 +6,8 @@ const MemberCard = ({ member }) => {
       {/* <img src={member.img} /> */}
       <h3>{member.name}</h3>
       <p>{member.role}</p>
-      <p className="price">{member.price}</p>
-      <Link className="btn btn-primary" to={`/members/${member.id}`}>
+      <p className="email">{member.email}</p>
+      <Link className="btn btn-primary me-2" to={`/members/${member.id}`}>
         <i className="fa-solid fa-search me-2" />
         İncele
       </Link>
