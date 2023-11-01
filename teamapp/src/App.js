@@ -1,32 +1,35 @@
-import logo from "./logo.svg";
-import { useState } from "react";
+// External JS
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Button } from "react-bootstrap";
+
+// Internal JS
+import MembersPage from "./pages/MembersPage";
+// CSS
 import "./App.css";
-import MemberListing from "./components/MemberListing";
-import MemberForm from "./components/MemberForm";
+import Main from "./layout/Main";
 
 function App() {
-  const [memberList, setMemberList] = useState([]);
+  const [user, setUser] = useState({ name: "Anonim", email: "" });
+  const [memberList, setMemberList] = useState();
 
-  const addMember = (member) => {
-    const newMemberList = [...memberList, member];
-    setMemberList(newMemberList);
+
+  const fetchMembers = () => {
+    return axios
+      .get("https://6541768cf0b8287df1fe6144.mockapi.io/api/members/")
+      .then((res) => {
+        setMemberList(res.data);
+        return res.data;
+      });
   };
 
-  return (
-    <div className="App">
-      <div className="App-landing">
-        <img src={logo} width="80px" className="App-logo" alt="logo" />
-        {memberList.length === 0 ? (
-          <div>Henüz bir üyemiz yok 🥲</div>
-        ) : (
-         
-          <MemberListing memberProp={memberList} />
-        )}
+  // component did mount
+  // app loaded
+  useEffect(() => {
+    fetchMembers();
+  }, []);
 
-        <MemberForm addMemberCallbackProp={addMember} />
-      </div>
-    </div>
-  );
+  return <Main memberList={memberList} fetchMembers={fetchMembers} />;
 }
 
 export default App;
